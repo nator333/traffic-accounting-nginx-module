@@ -3,15 +3,12 @@
  * Copyright (C) Liu Lantao
  */
 
-
-#include "ngx_traffic_accounting.h"
 #include "ngx_traffic_accounting_module.h"
+#include "ngx_traffic_accounting.h"
 
-
-ngx_int_t
-ngx_traffic_accounting_period_create(ngx_traffic_accounting_main_conf_t *amcf)
+ngx_int_t ngx_traffic_accounting_period_create(ngx_traffic_accounting_main_conf_t *amcf)
 {
-    ngx_traffic_accounting_period_t   *period;
+    ngx_traffic_accounting_period_t *period;
 
     period = ngx_calloc(sizeof(ngx_traffic_accounting_period_t), amcf->log);
     if (period == NULL)
@@ -26,8 +23,7 @@ ngx_traffic_accounting_period_create(ngx_traffic_accounting_main_conf_t *amcf)
     return NGX_OK;
 }
 
-ngx_int_t
-ngx_traffic_accounting_period_rotate(ngx_traffic_accounting_main_conf_t *amcf)
+ngx_int_t ngx_traffic_accounting_period_rotate(ngx_traffic_accounting_main_conf_t *amcf)
 {
     ngx_free(amcf->previous);
 
